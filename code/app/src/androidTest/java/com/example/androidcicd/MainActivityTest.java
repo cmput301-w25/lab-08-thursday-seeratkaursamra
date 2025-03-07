@@ -44,12 +44,11 @@ public class MainActivityTest {
             ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
         // Specific address for emulated device to access our localHost
         String androidLocalhost = "10.0.2.2";
         int portNumber = 8080;
         FirebaseFirestore.getInstance().useEmulator(androidLocalhost, portNumber);
-
     }
 
     @Before
@@ -124,6 +123,23 @@ public class MainActivityTest {
         onView(withId(android.R.id.button1)).perform(click());
 
         view.check(doesNotExist());
+    }
+
+    @Test
+    public void addMovieShouldShowErrorForDuplicateTitle() {
+        // Click on button to open addMovie dialog
+        onView(withId(R.id.buttonAddMovie)).perform(click());
+
+        // Input Movie Details with a duplicate title
+        onView(withId(R.id.edit_title)).perform(ViewActions.typeText("Oppenheimer"));
+        onView(withId(R.id.edit_genre)).perform(ViewActions.typeText("Some Genre"));
+        onView(withId(R.id.edit_year)).perform(ViewActions.typeText("2020"));
+
+        // Submit Form
+        onView(withId(android.R.id.button1)).perform(click());
+
+        // Check that the title field has the error message
+        onView(withId(R.id.edit_title)).check(matches(hasErrorText("Movie with this title already exists")));
     }
 
     @After

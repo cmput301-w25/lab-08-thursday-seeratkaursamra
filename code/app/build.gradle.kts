@@ -44,7 +44,4 @@ dependencies {
     testImplementation("org.mockito:mockito-inline:5.2.0")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    testImplementation("org.mockito:mockito-core:5.7.0")
-    testImplementation("org.mockito:mockito-inline:5.2.0")
-    implementation("net.bytebuddy:byte-buddy:1.17.1")
 }
