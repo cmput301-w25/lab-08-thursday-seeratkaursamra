@@ -3,8 +3,8 @@
 
 ## Student Details
 
-- **Full Name:** `<Enter name>`
-- **CCID:** `<Enter ccid>`
+- **Full Name:** `Seeratpreet Kaur Samra`
+- **CCID:** `seeratpr`
 
 ## References and Resources
 
